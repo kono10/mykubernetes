@@ -3,7 +3,7 @@ repo for my kubernetes notes
 
 <img width="824" alt="Screen Shot 2022-07-05 at 3 20 15 PM" src="https://user-images.githubusercontent.com/19543073/177409563-aa3a262e-74fe-4283-8097-ab1eec14c3fc.png">
 
-* Nodes: collection of containers
+* Nodes: collection of Pods
 * Master: Passes commands to Nodes
 * Cluster: Master + Nodes
 * Minikube: used for local development, sets dev kubernetes cluseter
