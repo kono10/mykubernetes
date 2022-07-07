@@ -44,6 +44,8 @@ Vocab Summary
 
 <img width="481" alt="Screen Shot 2022-07-06 at 7 18 55 PM" src="https://user-images.githubusercontent.com/19543073/177663396-2ddcfd65-8d8b-4a9d-bff2-17ed8233b88c.png">
 
+<img width="504" alt="Screen Shot 2022-07-06 at 7 57 23 PM" src="https://user-images.githubusercontent.com/19543073/177667069-b664e3d5-5c05-4ea5-9946-c3f6c61e52a0.png">
+
 ### Force kubernetes to restart a killed docker container 
 
 ```
