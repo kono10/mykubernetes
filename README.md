@@ -3,19 +3,31 @@ repo for my kubernetes notes
 
 <img width="824" alt="Screen Shot 2022-07-05 at 3 20 15 PM" src="https://user-images.githubusercontent.com/19543073/177409563-aa3a262e-74fe-4283-8097-ab1eec14c3fc.png">
 
+Command Summary
+
+`kubernetes describe <object type> <object name>`
+* prints out info about the config, can use it to check the image that is being used in the pod
+
+
+Vocab Summary
 * Nodes: collection of Pods
 * Master: Passes commands to Nodes
 * Cluster: Master + Nodes
 * Minikube: used for local development, sets dev kubernetes cluseter
 * Kubectl: program used for interacting with nodes in a cluster
-* Pod: tightly grouped containers with a common purpose, in kubernetes cannot run a container alone a container must have a pod
-* Object: a think that exists inside of a kubernetes cluster (Pod, Service)
+* Pod: tightly grouped containers with a common purpose, in kubernetes cannot run a container alone a container must have a pod, difficult to update pod config
+* Object: a think that exists inside of a kubernetes cluster (Pod, Service, Deployment)
 * Imperative Deployments: Request specific steps
 * Declarative Deployments: Request base config and let kubernetes do the work
+* Deployments: Kubernetes object meant to maintain a set of identical pods
 
 <img width="550" alt="Screen Shot 2022-07-05 at 3 21 11 PM" src="https://user-images.githubusercontent.com/19543073/177409696-e394c688-8665-40cb-816b-39b0d1e61899.png">
 
 <img width="343" alt="Screen Shot 2022-07-05 at 3 33 19 PM" src="https://user-images.githubusercontent.com/19543073/177411542-4798b2c2-be0f-4ddc-91b9-8eb10beaf071.png">
+
+<img width="811" alt="Screen Shot 2022-07-06 at 7 14 25 PM" src="https://user-images.githubusercontent.com/19543073/177663101-d5467224-f836-442a-85ac-5de344c5fe5e.png">
+
+<img width="528" alt="Screen Shot 2022-07-06 at 7 16 25 PM" src="https://user-images.githubusercontent.com/19543073/177663248-7749a997-fffb-4bbf-be56-5384be9a2e0e.png">
 
 ### Force kubernetes to restart a killed docker container 
 
