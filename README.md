@@ -14,6 +14,12 @@ Command Summary
 `kubernetes get pods -o wide`
 * get an extended list of pod info
 
+```
+❯ kubectl get pods -o wide
+NAME                                 READY   STATUS    RESTARTS   AGE    IP          NODE             NOMINATED NODE   READINESS GATES
+django-deployment-7fcf74dd4f-w58t8   1/1     Running   0          5m7s   10.1.0.15   docker-desktop   <none>           <none>
+```
+* IP -> Pod ip address inside of the node, as nodes are added and deleted the ip will change, node-port service will have a static ip address that will make our app easy to access via a web browser.
 
 Vocab Summary
 * Nodes: collection of Pods
@@ -26,6 +32,7 @@ Vocab Summary
 * Imperative Deployments: Request specific steps
 * Declarative Deployments: Request base config and let kubernetes do the work
 * Deployments: Kubernetes object meant to maintain a set of identical pods
+* Service: routes traffic to pods, example
 
 <img width="550" alt="Screen Shot 2022-07-05 at 3 21 11 PM" src="https://user-images.githubusercontent.com/19543073/177409696-e394c688-8665-40cb-816b-39b0d1e61899.png">
 
