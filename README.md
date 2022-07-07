@@ -8,6 +8,12 @@ Command Summary
 `kubernetes describe <object type> <object name>`
 * prints out info about the config, can use it to check the image that is being used in the pod
 
+`kubernetes delete -f <config file>`
+* delete a kubernetes object
+
+`kubernetes get pods -o wide`
+* get an extended list of pod info
+
 
 Vocab Summary
 * Nodes: collection of Pods
@@ -28,6 +34,8 @@ Vocab Summary
 <img width="811" alt="Screen Shot 2022-07-06 at 7 14 25 PM" src="https://user-images.githubusercontent.com/19543073/177663101-d5467224-f836-442a-85ac-5de344c5fe5e.png">
 
 <img width="528" alt="Screen Shot 2022-07-06 at 7 16 25 PM" src="https://user-images.githubusercontent.com/19543073/177663248-7749a997-fffb-4bbf-be56-5384be9a2e0e.png">
+
+<img width="481" alt="Screen Shot 2022-07-06 at 7 18 55 PM" src="https://user-images.githubusercontent.com/19543073/177663396-2ddcfd65-8d8b-4a9d-bff2-17ed8233b88c.png">
 
 ### Force kubernetes to restart a killed docker container 
 
