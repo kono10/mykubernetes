@@ -71,3 +71,21 @@ NAME         READY   STATUS    RESTARTS      AGE
 django-app   1/1     Running   2 (21s ago)   24h
 
 ```
+Scale up the number of pods
+* change the replicas line in the *deployments.yml file
+```
+❯ kubectl apply -f django-app-deployment.yml
+deployment.apps/django-deployment configured
+❯ kubectl get pods
+NAME                                 READY   STATUS    RESTARTS   AGE
+django-deployment-7fcf74dd4f-2khss   1/1     Running   0          2m55s
+django-deployment-7fcf74dd4f-2rrc8   1/1     Running   0          2m55s
+django-deployment-7fcf74dd4f-66lh5   1/1     Running   0          2m55s
+django-deployment-7fcf74dd4f-7v987   1/1     Running   0          5s
+django-deployment-7fcf74dd4f-qltlr   1/1     Running   0          5s
+django-deployment-7fcf74dd4f-t2cft   1/1     Running   0          2m55s
+django-deployment-7fcf74dd4f-w58t8   1/1     Running   0          24h
+❯ kubectl get deployments
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+django-deployment   7/7     7            7           24h
+```
