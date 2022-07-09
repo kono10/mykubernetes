@@ -22,14 +22,13 @@ django-deployment-7fcf74dd4f-w58t8   1/1     Running   0          5m7s   10.1.0.
 * IP -> Pod ip address inside of the node, as nodes are added and deleted the ip will change, node-port service will have a static ip address that will make our app easy to access via a web browser.
 
 Vocab Summary
-* Nodes: collection of Pods
+* Nodes: collection of Pods/Deployments
 * Master: Passes commands to Nodes
 * Cluster: Master + Nodes
-* Minikube: used for local development, sets dev kubernetes cluseter
 * Kubectl: program used for interacting with nodes in a cluster
 * Pod: tightly grouped containers with a common purpose, in kubernetes cannot run a container alone a container must have a pod, difficult to update pod config
-* Object: a think that exists inside of a kubernetes cluster (Pod, Service, Deployment)
-* Imperative Deployments: Request specific steps
+* Object: a thing that exists inside of a kubernetes cluster (Pod, Service, Deployment)
+* Imperative Deployments: Request specific steps, ex: run a kubectl command to update the version of a container in an already running
 * Declarative Deployments: Request base config and let kubernetes do the work
 * Deployments: Kubernetes object meant to maintain a set of identical pods
 * Service: routes traffic to pods, example
