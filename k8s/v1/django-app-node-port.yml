@@ -1,0 +1,22 @@
+apiVersion: v1
+# Service: creates networking for kubernetes objects
+kind: Service
+metadata: 
+  # name the pod that gets created
+  name: django-app-node-port
+spec:
+  # don't use nodeports outside of dev
+  type: NodePort
+  ports: 
+    # port that another pod/container would use to access the pod created 
+    # in django-app.yml
+    - port: 3050
+      # should be the same os container port in django-app
+      targetPort: 8000
+      # port used to access via a browser
+      nodePort: 31515
+  selector:
+    # should be the same as labels -> component -> web
+    # in django-app.yml
+    # forwards traffic to pods with a label of component:web
+    component: web

@@ -1,0 +1,22 @@
+# limits the types of objects that we can specify
+# in a given config file
+apiVersion: v1
+# object you want to make with this config file
+kind: Pod
+metadata: 
+  name: django-app
+  labels:
+    component: web
+spec:
+  containers:
+    # name is mostly for logging
+    - name: django-app
+      image: novskytech/djangoproject
+      env: 
+      - name: SECRET_KEY
+        value: "test123"
+      ports: 
+        # on this container want to expose port 8000 to the
+        # outside world
+        - containerPort: 8000
+

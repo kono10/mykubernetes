@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: django-deployment
+spec:
+  # the number of pods the deployment is going to make
+  replicas: 1
+  # deployment connects to the pod with the component: web
+  selector:
+    matchLabels:
+      component: web
+  # deployments use templates to create pods
+  template:
+    metadata:
+      labels:
+        # services will route traffic to every pod with the label component: web
+        component: web
+    spec:
+      containers:
+        - name: django-app
+          image: novskytech/djangoproject
+          ports:
+            - containerPort: 8000
+          env:
+            - name: SECRET_KEY
+              value: "test"
+
