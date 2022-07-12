@@ -5,13 +5,13 @@ repo for my kubernetes notes
 
 Command Summary
 
-`kubernetes describe <object type> <object name>`
+`kubectl describe <object type> <object name>`
 * prints out info about the config, can use it to check the image that is being used in the pod
 
-`kubernetes delete -f <config file>`
+`kubectl delete -f <config file>`
 * delete a kubernetes object
 
-`kubernetes get pods -o wide`
+`kubectl get pods -o wide`
 * get an extended list of pod info
 
 ```
