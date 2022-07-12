@@ -9,6 +9,7 @@ Command Summary
 * prints out info about the config, can use it to check the image that is being used in the pod
 
 `kubectl delete -f <config file>`
+`kubectl delete <object type> <object name>`
 * delete a kubernetes object
 
 `kubectl get pods -o wide`
@@ -32,7 +33,8 @@ Vocab Summary
 * Declarative Deployments: Request base config and let kubernetes do the work
 * Deployments: Kubernetes object meant to maintain a set of identical pods
 * Service: routes traffic to pods, example
-* ClusterIP Service
+* ClusterIP Service: exposes a set of pods to other objects in the cluster, no outside world
+* NodeportIP Services: exposes a set of pods to the outside world, only good for dev
 * Ingress Service
 
 <img width="550" alt="Screen Shot 2022-07-05 at 3 21 11 PM" src="https://user-images.githubusercontent.com/19543073/177409696-e394c688-8665-40cb-816b-39b0d1e61899.png">
