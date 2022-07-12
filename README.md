@@ -32,6 +32,8 @@ Vocab Summary
 * Declarative Deployments: Request base config and let kubernetes do the work
 * Deployments: Kubernetes object meant to maintain a set of identical pods
 * Service: routes traffic to pods, example
+* ClusterIP Service
+* Ingress Service
 
 <img width="550" alt="Screen Shot 2022-07-05 at 3 21 11 PM" src="https://user-images.githubusercontent.com/19543073/177409696-e394c688-8665-40cb-816b-39b0d1e61899.png">
 
@@ -72,6 +74,7 @@ django-app   1/1     Running   2 (21s ago)   24h
 ```
 Scale up the number of pods
 * change the replicas line in the *deployments.yml file
+* these replicas are all managed by the designated deployment
 ```
 ❯ kubectl apply -f django-app-deployment.yml
 deployment.apps/django-deployment configured
