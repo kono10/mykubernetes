@@ -23,6 +23,10 @@ Command Summary
 NAME                                 READY   STATUS    RESTARTS   AGE    IP          NODE             NOMINATED NODE   READINESS GATES
 django-deployment-7fcf74dd4f-w58t8   1/1     Running   0          5m7s   10.1.0.15   docker-desktop   <none>           <none>
 ```
+
+`kubectl get secrets`
+
+
 * IP -> Pod ip address inside of the node, as nodes are added and deleted the ip will change, node-port service will have a static ip address that will make our app easy to access via a web browser.
 
 K8s Summary
@@ -35,7 +39,10 @@ K8s Summary
 * Imperative Deployments: Request specific steps, ex: run a kubectl command to update the version of a container in an already running
 * Declarative Deployments: Request base config and let kubernetes do the work
 * Deployments: Kubernetes object meant to maintain a set of identical pods
-* Secretly stores a piece of information in the cluster such as a database password, or the secret key for a django app
+* Secretl: Stores a piece of information in the cluster such as a database password, or the secret key for a django app. Manually created via an imperative command
+
+
+<img width="991" alt="Screen Shot 2022-07-13 at 4 36 12 PM" src="https://user-images.githubusercontent.com/19543073/178840906-04f38b19-ecfa-474f-891d-1bdfffffd016.png">
 
 ## Services
 * Service: routes traffic to pods, example
