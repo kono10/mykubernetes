@@ -97,4 +97,51 @@ NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 django-deployment   7/7     7            7           24h
 ```
 
+## Get log info from a pod
+
+```
+❯ kubectl get pods
+NAME                                 READY   STATUS    RESTARTS   AGE
+django-deployment-7fcf74dd4f-6hntd   1/1     Running   0          20h
+django-deployment-7fcf74dd4f-6w6vx   1/1     Running   0          20h
+django-deployment-7fcf74dd4f-8rwpv   1/1     Running   0          20h
+
+❯ kubectl logs django-deployment-7fcf74dd4f-6hntd
+[2022-07-12 23:45:19 +0000] [1] [INFO] Starting gunicorn 20.1.0
+[2022-07-12 23:45:19 +0000] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
+[2022-07-12 23:45:19 +0000] [1] [INFO] Using worker: sync
+[2022-07-12 23:45:19 +0000] [9] [INFO] Booting worker with pid: 9
+[2022-07-12 23:45:19 +0000] [10] [INFO] Booting worker with pid: 10
+[2022-07-12 23:45:19 +0000] [11] [INFO] Booting worker with pid: 11
+[2022-07-12 23:45:19 +0000] [13] [INFO] Booting worker with pid: 13
+[2022-07-13 00:11:32 +0000] [1] [CRITICAL] WORKER TIMEOUT (pid:10)
+[2022-07-13 00:11:32 +0000] [10] [INFO] Worker exiting (pid: 10)
+[2022-07-13 00:11:32 +0000] [17] [INFO] Booting worker with pid: 17
+[2022-07-13 02:11:51 +0000] [1] [CRITICAL] WORKER TIMEOUT (pid:9)
+[2022-07-13 02:11:51 +0000] [1] [CRITICAL] WORKER TIMEOUT (pid:11)
+[2022-07-13 02:11:51 +0000] [1] [CRITICAL] WORKER TIMEOUT (pid:13)
+[2022-07-13 02:11:51 +0000] [13] [INFO] Worker exiting (pid: 13)
+[2022-07-13 02:11:51 +0000] [11] [INFO] Worker exiting (pid: 11)
+[2022-07-13 02:11:46 +0000] [9] [INFO] Worker exiting (pid: 9)
+[2022-07-13 02:11:46 +0000] [1] [WARNING] Worker with pid 9 was terminated due to signal 9
+[2022-07-13 02:11:46 +0000] [19] [INFO] Booting worker with pid: 19
+[2022-07-13 02:11:46 +0000] [20] [INFO] Booting worker with pid: 20
+[2022-07-13 02:11:46 +0000] [1] [WARNING] Worker with pid 13 was terminated due to signal 9
+[2022-07-13 02:11:46 +0000] [21] [INFO] Booting worker with pid: 21
+[2022-07-13 02:45:07 +0000] [1] [CRITICAL] WORKER TIMEOUT (pid:17)
+[2022-07-13 02:45:07 +0000] [17] [INFO] Worker exiting (pid: 17)
+[2022-07-13 02:45:06 +0000] [25] [INFO] Booting worker with pid: 25
+[2022-07-13 20:04:04 +0000] [1] [CRITICAL] WORKER TIMEOUT (pid:19)
+[2022-07-13 20:04:04 +0000] [1] [CRITICAL] WORKER TIMEOUT (pid:20)
+[2022-07-13 20:04:04 +0000] [1] [CRITICAL] WORKER TIMEOUT (pid:21)
+[2022-07-13 20:04:04 +0000] [21] [INFO] Worker exiting (pid: 21)
+[2022-07-13 20:04:04 +0000] [19] [INFO] Worker exiting (pid: 19)
+[2022-07-13 20:04:05 +0000] [1] [WARNING] Worker with pid 19 was terminated due to signal 9
+[2022-07-13 20:04:05 +0000] [27] [INFO] Booting worker with pid: 27
+[2022-07-13 20:04:05 +0000] [28] [INFO] Booting worker with pid: 28
+[2022-07-13 20:04:05 +0000] [1] [WARNING] Worker with pid 20 was terminated due to signal 9
+[2022-07-13 20:04:05 +0000] [29] [INFO] Booting worker with pid: 29
+```
+
+
 ### Can condense configs into single file by seperating configs for different objects by a '---'
