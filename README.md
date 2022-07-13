@@ -15,6 +15,9 @@ Command Summary
 `kubectl get pods -o wide`
 * get an extended list of pod info
 
+`kubectl get services -o wide`
+`kubectl get deployments -o wide`
+
 ```
 ❯ kubectl get pods -o wide
 NAME                                 READY   STATUS    RESTARTS   AGE    IP          NODE             NOMINATED NODE   READINESS GATES
@@ -93,3 +96,5 @@ django-deployment-7fcf74dd4f-w58t8   1/1     Running   0          24h
 NAME                READY   UP-TO-DATE   AVAILABLE   AGE
 django-deployment   7/7     7            7           24h
 ```
+
+### Can condense configs into single file by seperating configs for different objects by a '---'
