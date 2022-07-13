@@ -25,7 +25,7 @@ django-deployment-7fcf74dd4f-w58t8   1/1     Running   0          5m7s   10.1.0.
 ```
 * IP -> Pod ip address inside of the node, as nodes are added and deleted the ip will change, node-port service will have a static ip address that will make our app easy to access via a web browser.
 
-Vocab Summary
+K8s Summary
 * Nodes: collection of Pods/Deployments
 * Master: Passes commands to Nodes
 * Cluster: Master + Nodes
@@ -35,10 +35,23 @@ Vocab Summary
 * Imperative Deployments: Request specific steps, ex: run a kubectl command to update the version of a container in an already running
 * Declarative Deployments: Request base config and let kubernetes do the work
 * Deployments: Kubernetes object meant to maintain a set of identical pods
+* Secretly stores a piece of information in the cluster such as a database password, or the secret key for a django app
+
+## Services
 * Service: routes traffic to pods, example
 * ClusterIP Service: exposes a set of pods to other objects in the cluster, no outside world
 * NodeportIP Services: exposes a set of pods to the outside world, only good for dev
 * Ingress Service
+
+
+## Volumes, Pv's, and PVC's
+
+* Volume: in kubernetes, an object that allow a container to store data at the pod level. Volume can be accessed by any container inside the pod.
+* Persistent Volume: Durable storage that is not tied to a pod or container. Similar to a docker volume. Database solution for k8s. If a container/pod ever crashes all the data inside that container would be lost! Once a new pod starts none of the old data gets carried over. The file system for postgres is housed outside the deployment so if it crashes the data does not get lost. 
+* Persistent Volume Claim: options available to your pod for storage, in a cluster could have pv's created ahead of time (statically provisioned pv), also have an option that can be created on the fly (dynamically provisioned pv)
+* PVC is an advertisement of optionvs PV are the options
+
+<img width="703" alt="Screen Shot 2022-07-13 at 3 46 18 PM" src="https://user-images.githubusercontent.com/19543073/178831249-081af41a-bdf8-40fb-8c94-fed890dfeaec.png">
 
 <img width="550" alt="Screen Shot 2022-07-05 at 3 21 11 PM" src="https://user-images.githubusercontent.com/19543073/177409696-e394c688-8665-40cb-816b-39b0d1e61899.png">
 
@@ -142,6 +155,8 @@ django-deployment-7fcf74dd4f-8rwpv   1/1     Running   0          20h
 [2022-07-13 20:04:05 +0000] [1] [WARNING] Worker with pid 20 was terminated due to signal 9
 [2022-07-13 20:04:05 +0000] [29] [INFO] Booting worker with pid: 29
 ```
-
-
 ### Can condense configs into single file by seperating configs for different objects by a '---'
+
+
+## Creating an encoded config (something like a password)
+
