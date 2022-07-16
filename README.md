@@ -27,11 +27,6 @@ django-deployment-7fcf74dd4f-w58t8   1/1     Running   0          5m7s   10.1.0.
 `kubectl get secrets`
 
 
-
-
-
-
-* IP ![Uploading Screen Shot 2022-07-16 at 7.46.48 AM.png…]()
 -> Pod ip address inside of the node, as nodes are added and deleted the ip will change, node-port service will have a static ip address that will make our app easy to access via a web browser.
 
 ## K8s Summary
