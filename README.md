@@ -27,19 +27,28 @@ django-deployment-7fcf74dd4f-w58t8   1/1     Running   0          5m7s   10.1.0.
 `kubectl get secrets`
 
 
-* IP -> Pod ip address inside of the node, as nodes are added and deleted the ip will change, node-port service will have a static ip address that will make our app easy to access via a web browser.
 
-K8s Summary
+
+
+
+* IP ![Uploading Screen Shot 2022-07-16 at 7.46.48 AM.png…]()
+-> Pod ip address inside of the node, as nodes are added and deleted the ip will change, node-port service will have a static ip address that will make our app easy to access via a web browser.
+
+## K8s Summary
+
+<img width="545" alt="Screen Shot 2022-07-16 at 7 47 32 AM" src="https://user-images.githubusercontent.com/19543073/179355492-d134ddaf-09ca-42bd-8f00-4b4da9587cf0.png">
+
 * Nodes: collection of Pods/Deployments
 * Master: Passes commands to Nodes
 * Cluster: Master + Nodes
 * Kubectl: program used for interacting with nodes in a cluster
 * Pod: tightly grouped containers with a common purpose, in kubernetes cannot run a container alone a container must have a pod, difficult to update pod config
 * Object: a thing that exists inside of a kubernetes cluster (Pod, Service, Deployment)
-* Imperative Deployments: Request specific steps, ex: run a kubectl command to update the version of a container in an already running
+* Imperative Deployments: Request specific steps, ex: run a kubectl command to update the version of a container in an already running pod
 * Declarative Deployments: Request base config and let kubernetes do the work
+* Controller: any object that constantly works to make a desired state a reality (deployments)
 * Deployments: Kubernetes object meant to maintain a set of identical pods
-* Secretl: Stores a piece of information in the cluster such as a database password, or the secret key for a django app. Manually created via an imperative command
+* Secrets: Stores a piece of information in the cluster such as a database password, or the secret key for a django app. Manually created via an imperative command
 
 
 <img width="991" alt="Screen Shot 2022-07-13 at 4 36 12 PM" src="https://user-images.githubusercontent.com/19543073/178840906-04f38b19-ecfa-474f-891d-1bdfffffd016.png">
@@ -48,8 +57,10 @@ K8s Summary
 * Service: routes traffic to pods, example
 * ClusterIP Service: exposes a set of pods to other objects in the cluster, no outside world
 * NodeportIP Services: exposes a set of pods to the outside world, only good for dev
-* Ingress Service
-
+* LoadBalancer: Legacy way of getting network traffic into a cluster, only allows access to one specific set of pods.
+* Ingress Service: Exposes a set of services to the outside world. Can route requests to multiple services.
+  * Nginx -> community led project endorsed by kubernetes, setup will change depending on the environment (local, google cloud etc.). Ingress controller will create an nginx pod that handles routing.
+  * kubernetes -> project led by the company nginx
 
 ## Volumes, Pv's, and PVC's
 
@@ -165,5 +176,8 @@ django-deployment-7fcf74dd4f-8rwpv   1/1     Running   0          20h
 ### Can condense configs into single file by seperating configs for different objects by a '---'
 
 
-## Creating an encoded config (something like a password)
+### Production ingress structure
+
+<img width="474" alt="Screen Shot 2022-07-16 at 7 51 45 AM" src="https://user-images.githubusercontent.com/19543073/179355649-274af288-21d3-4b45-b410-564ffa71337a.png">
+
 
