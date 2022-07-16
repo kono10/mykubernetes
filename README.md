@@ -59,7 +59,7 @@ django-deployment-7fcf74dd4f-w58t8   1/1     Running   0          5m7s   10.1.0.
 * NodeportIP Services: exposes a set of pods to the outside world, only good for dev
 * LoadBalancer: Legacy way of getting network traffic into a cluster, only allows access to one specific set of pods.
 * Ingress Service: Exposes a set of services to the outside world. Can route requests to multiple services.
-  * Nginx -> community led project endorsed by kubernetes, setup will change depending on the environment (local, google cloud etc.). Ingress controller will create an nginx pod that handles routing.
+  * Nginx -> community led project endorsed by kubernetes, setup will change depending on the environment (local, google cloud etc.). Ingress controller will create an nginx pod that handles routing. Nginx will bypass cluster IP and go directly to a pod. Cluster IP will keep track of pods.
   * kubernetes -> project led by the company nginx
 
 ## Volumes, Pv's, and PVC's
