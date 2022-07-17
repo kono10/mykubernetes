@@ -4,8 +4,8 @@ metadata:
   name: django-deployment
 spec:
   # the number of pods the deployment is going to make
-  replicas: 1
-  # deployment connects to the pod with the component: web
+  replicas: 3
+  # the label of the pods the deployment is supposed to control
   selector:
     matchLabels:
       component: web
@@ -18,11 +18,19 @@ spec:
         component: web
     spec:
       containers:
+        # list of containers this pod is supposed to run
         - name: django-app
           image: novskytech/djangoproject
           ports:
             - containerPort: 8000
           env:
+            # env variable that gets passed to the container 
+            # when it is created inside of the pod
             - name: SECRET_KEY
-              value: "test"
+              valueFrom:
+                secretKeyRef:
+                  # name of the secret
+                  # a single secret can have many key value pairs
+                  name: secret-key
+                  key: SECRET_KEY
 

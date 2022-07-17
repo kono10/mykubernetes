@@ -1,0 +1,23 @@
+apiVersion: v1
+# Service: creates networking for kubernetes objects
+kind: Service
+metadata: 
+  # name the pod that gets created
+  # name will be the url something like http://<name>
+  name: django-app-cluster-ip
+spec:
+  type: ClusterIP
+  selector:
+    component: web
+  ports: 
+    # TODO probably have to update these
+    - port: 8000
+      # should be the same os container port in django-app
+      targetPort: 8000
+      # no nodebport bc ClusterIP not accessible from the outside world
+      # nodePort: 31515
+  selector:
+    # should be the same as labels -> component -> web
+    # in django-app.yml
+    # forwards traffic to pods with a label of component:web
+    component: web
